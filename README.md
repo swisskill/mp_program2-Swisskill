@@ -11,5 +11,5 @@ Will Brant
 - I'm not quite sure where to find it in the settings, but a quick google search tells me that a moto g power 2021 has a resolution of 720x1600 pixels, 20:9 ratio
 - Android version 11
 ## Anything that doesn't work:
-Every once in a while, the text input will get messed up and it's hard to read. Haven't found the problem. But recompiling seems to fix the problem so who knows
-
+- Every once in a while, the text input will get messed up and it's hard to read. Haven't found the problem. But recompiling seems to fix the problem so who knows
+- If the submit button is clicked before any fields are added, it crashes. Tried to find the fix, but I was unable
