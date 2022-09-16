@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class tip extends Fragment {
@@ -36,6 +37,8 @@ public class tip extends Fragment {
         Button nRod = myView.findViewById(R.id.button4);
         EditText preTot = myView.findViewById(R.id.editTextNumberDecimal);
         EditText preTip = myView.findViewById(R.id.editTextNumberDecimal2);
+        TextView viewTot = myView.findViewById(R.id.textView);
+        TextView viewTip = myView.findViewById(R.id.textView2);
 
         rTot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,22 +78,41 @@ public class tip extends Fragment {
                     float fTotal = Float.parseFloat(preTot.getText().toString());
                     float fTip = Float.parseFloat(preTip.getText().toString());
                     float nFTip = fTip/100;
-                    double gTotal = Math.ceil((fTotal*nFTip)+fTotal); // where g total stands for grand total
-                    Toast.makeText(requireContext(),Double.toString(gTotal)+"0", Toast.LENGTH_SHORT).show();
+                    double gTip = fTotal*nFTip;
+                    double gTotal = Math.ceil((gTip)+fTotal); // where g total stands for grand total
+                    gTip = Math.round(gTip*100);
+                    gTip = gTip/100;
+
+                    viewTot.setText("Total: $"+ (Double.toString(gTotal))+"0");
+                    viewTip.setText("Tip: $" + (Double.toString(gTip)));
+                    //Toast.makeText(requireContext(),Double.toString(gTotal)+"0", Toast.LENGTH_SHORT).show();
                 } else if (rtipB){
                     float fTotal = Float.parseFloat(preTot.getText().toString());
                     float fTip = Float.parseFloat(preTip.getText().toString());
                     float nFTip = fTip/100;
-                    double gTotal = (Math.ceil(fTotal*nFTip))+fTotal; // where g total stands for grand total
+                    double gTip = fTotal*nFTip;
+
+                    double gTotal = (Math.ceil(gTip))+fTotal; // where g total stands for grand total
                     gTotal = Math.round(gTotal*100);
                     gTotal = gTotal/100;
-                    Toast.makeText(requireContext(),Double.toString(gTotal), Toast.LENGTH_SHORT).show();
+
+                    gTip = Math.round(gTip*100);
+                    gTip = Math.ceil(gTip/100);
+                    viewTot.setText("Total: $"+ (Double.toString(gTotal)));
+                    viewTip.setText("Tip: $" + (Double.toString(gTip))+"0");
                 } else if (nRodB) {
                     float fTotal = Float.parseFloat(preTot.getText().toString());
                     float fTip = Float.parseFloat(preTip.getText().toString());
                     float nFTip = fTip/100;
-                    float gTotal = (fTotal*nFTip)+fTotal; // where g total stands for grand total
-                    Toast.makeText(requireContext(),Float.toString(gTotal), Toast.LENGTH_SHORT).show();
+                    double gTip = fTotal*nFTip;
+                    double gTotal = gTip+fTotal; // where g total stands for grand total
+                    gTotal = Math.round(gTotal*100);
+                    gTotal = gTotal/100;
+
+                    gTip = Math.round(gTip*100);
+                    gTip = gTip/100;
+                    viewTot.setText("Total: $"+ (Double.toString(gTotal)));
+                    viewTip.setText("Tip: $" + (Double.toString(gTip)));
                 }else{
                     //throw error? that would be my fault if that happens. no user issue, but me0
                 }
