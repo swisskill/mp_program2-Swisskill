@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 public class tip extends Fragment {
 
-    private TipViewModel mViewModel;
     boolean rtotB = false; //ATTN: Hey jim is this a good place for these bools? is this good log?
     boolean rtipB = false; //rtot is rtotal boolean and rtip is rtip boolean
     boolean nRodB = true; // stands for no round boolean
@@ -31,7 +30,6 @@ public class tip extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_tip, container, false);
-        mViewModel = new ViewModelProvider(requireActivity()).get(TipViewModel.class);
         Button submit = myView.findViewById(R.id.button3);
         Button rTot = myView.findViewById(R.id.button);
         Button rTip = myView.findViewById(R.id.button2);
@@ -74,7 +72,12 @@ public class tip extends Fragment {
 //                mViewModel.setItem(preTot); //same here
                 //we probably need to store the info in a variable to do the calculations
                 if (rtotB == true) {
-                    //round by total
+                    String sTotal = preTot.getText().toString();
+                    String sTip = preTip.getText().toString();
+                    float fTotal = Float.parseFloat(sTotal);
+                    float fTip = Float.parseFloat(sTip);
+                    
+
                 } else if (rtipB == true){
                     //round by tip
                 } else if (nRodB == true) {

@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().add(R.id.container, new tip()).commit();
-        TipViewModel mViewModel;
 
     }
 }
