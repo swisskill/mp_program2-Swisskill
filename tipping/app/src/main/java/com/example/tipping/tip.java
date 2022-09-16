@@ -66,18 +66,25 @@ public class tip extends Fragment {
                 Toast.makeText(requireContext(),"You have selected to not round. GUILT! SHAME!", Toast.LENGTH_SHORT).show();
             }
         });
-//
-//        submit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-////                mViewModel.setItem(preTip); //ah gotta make this take a float not a string
-////                mViewModel.setItem(preTot); //same here
-//                //we probably need to store the info in a variable to do the calculations
-//
-//                //if
-//
-//            }
-//        });
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+//                mViewModel.setItem(preTip); //ah gotta make this take a float not a string
+//                mViewModel.setItem(preTot); //same here
+                //we probably need to store the info in a variable to do the calculations
+                if (rtotB == true) {
+                    //round by total
+                } else if (rtipB == true){
+                    //round by tip
+                } else if (nRodB == true) {
+                    //float
+                }else{
+                    //throw error? that would be my fault if that happens. no user issue, but me0
+                }
+
+            }
+        });
 
 
         return myView;
