@@ -76,8 +76,10 @@ public class tip extends Fragment {
                 //we probably need to store the info in a variable to do the calculations
 
                 if (rtotB) {
-                    float fTotal = Float.parseFloat(preTot.getText().toString());
-                    float fTip = Float.parseFloat(preTip.getText().toString());
+                    float fTotal;
+                    float fTip;
+                    fTotal = Float.parseFloat(preTot.getText().toString());
+                    fTip = Float.parseFloat(preTip.getText().toString());
                     if (fTip > 100){Toast.makeText(requireContext(),"Someone's feeling mighty generous. . .", Toast.LENGTH_SHORT).show();}
                     float nFTip = fTip/100;
                     double gTip = fTotal*nFTip;
