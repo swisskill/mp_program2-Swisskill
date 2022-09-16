@@ -71,17 +71,26 @@ public class tip extends Fragment {
 //                mViewModel.setItem(preTip); //ah gotta make this take a float not a string
 //                mViewModel.setItem(preTot); //same here
                 //we probably need to store the info in a variable to do the calculations
-                if (rtotB == true) {
-                    String sTotal = preTot.getText().toString();
-                    String sTip = preTip.getText().toString();
-                    float fTotal = Float.parseFloat(sTotal);
-                    float fTip = Float.parseFloat(sTip);
-                    
-
-                } else if (rtipB == true){
-                    //round by tip
-                } else if (nRodB == true) {
-                    //float
+                if (rtotB) {
+                    float fTotal = Float.parseFloat(preTot.getText().toString());
+                    float fTip = Float.parseFloat(preTip.getText().toString());
+                    float nFTip = fTip/100;
+                    double gTotal = Math.ceil((fTotal*nFTip)+fTotal); // where g total stands for grand total
+                    Toast.makeText(requireContext(),Double.toString(gTotal)+"0", Toast.LENGTH_SHORT).show();
+                } else if (rtipB){
+                    float fTotal = Float.parseFloat(preTot.getText().toString());
+                    float fTip = Float.parseFloat(preTip.getText().toString());
+                    float nFTip = fTip/100;
+                    double gTotal = (Math.ceil(fTotal*nFTip))+fTotal; // where g total stands for grand total
+                    gTotal = Math.round(gTotal*100);
+                    gTotal = gTotal/100;
+                    Toast.makeText(requireContext(),Double.toString(gTotal), Toast.LENGTH_SHORT).show();
+                } else if (nRodB) {
+                    float fTotal = Float.parseFloat(preTot.getText().toString());
+                    float fTip = Float.parseFloat(preTip.getText().toString());
+                    float nFTip = fTip/100;
+                    float gTotal = (fTotal*nFTip)+fTotal; // where g total stands for grand total
+                    Toast.makeText(requireContext(),Float.toString(gTotal), Toast.LENGTH_SHORT).show();
                 }else{
                     //throw error? that would be my fault if that happens. no user issue, but me0
                 }

@@ -37,7 +37,7 @@
         android:layout_width="174dp"
         android:layout_height="53dp"
         android:ems="10"
-        android:hint="Tip % (0->1)"
+        android:hint="Tip % (0->100)"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
