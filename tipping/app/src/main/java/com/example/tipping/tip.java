@@ -74,9 +74,11 @@ public class tip extends Fragment {
 //                mViewModel.setItem(preTip); //ah gotta make this take a float not a string
 //                mViewModel.setItem(preTot); //same here
                 //we probably need to store the info in a variable to do the calculations
+
                 if (rtotB) {
                     float fTotal = Float.parseFloat(preTot.getText().toString());
                     float fTip = Float.parseFloat(preTip.getText().toString());
+                    if (fTip > 100){Toast.makeText(requireContext(),"Someone's feeling mighty generous. . .", Toast.LENGTH_SHORT).show();}
                     float nFTip = fTip/100;
                     double gTip = fTotal*nFTip;
                     double gTotal = Math.ceil((gTip)+fTotal); // where g total stands for grand total
@@ -89,6 +91,7 @@ public class tip extends Fragment {
                 } else if (rtipB){
                     float fTotal = Float.parseFloat(preTot.getText().toString());
                     float fTip = Float.parseFloat(preTip.getText().toString());
+                    if (fTip > 100){Toast.makeText(requireContext(),"Someone's feeling mighty generous. . .", Toast.LENGTH_SHORT).show();}
                     float nFTip = fTip/100;
                     double gTip = fTotal*nFTip;
 
@@ -103,6 +106,7 @@ public class tip extends Fragment {
                 } else if (nRodB) {
                     float fTotal = Float.parseFloat(preTot.getText().toString());
                     float fTip = Float.parseFloat(preTip.getText().toString());
+                    if (fTip > 100){Toast.makeText(requireContext(),"Someone's feeling mighty generous. . .", Toast.LENGTH_SHORT).show();}
                     float nFTip = fTip/100;
                     double gTip = fTotal*nFTip;
                     double gTotal = gTip+fTotal; // where g total stands for grand total
@@ -113,13 +117,12 @@ public class tip extends Fragment {
                     gTip = gTip/100;
                     viewTot.setText("Total: $"+ (Double.toString(gTotal)));
                     viewTip.setText("Tip: $" + (Double.toString(gTip)));
-                }else{
-                    //throw error? that would be my fault if that happens. no user issue, but me0
                 }
+                //Yes. I know that a lot of this can be broken up into other methods. I am running
+                //short on time. I don't like it either
 
             }
         });
-
 
         return myView;
     }
