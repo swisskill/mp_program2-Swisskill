@@ -1,8 +1,10 @@
 # Program # 2
 
-## Will Brant 
+## Course: 
+Cosc 4730
 
-## Cosc 4730
+## Name: 
+Will Brant
 
 ## Description: (how to run the program, phone/emulator screen size, android version ie 11)
 - To use the program, enter in the bill at the top where instructed. Then enter in the tip percent amount from 0-100(ex: entering 10 means you want to tip 10 percent). From there, the user can select the form of tipping. Round bill means that the bill will be rounded after the tip has been factored in. No round means nothing is rounded. Round tips means that the tip is rounded to the nearest dollar before being added to the total. Hit submit and the tip and total are populated in the text fields
