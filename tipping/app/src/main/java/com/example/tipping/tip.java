@@ -71,32 +71,29 @@ public class tip extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-//                mViewModel.setItem(preTip); //ah gotta make this take a float not a string
-//                mViewModel.setItem(preTot); //same here
-                //we probably need to store the info in a variable to do the calculations
-
-                if (rtotB) {
                     float fTotal;
                     float fTip;
-                    fTotal = Float.parseFloat(preTot.getText().toString());
-                    fTip = Float.parseFloat(preTip.getText().toString());
+                    if (preTot.getText().toString().isEmpty()){
+                        fTotal=10;
+                    }else{
+                        fTotal = Float.parseFloat(preTot.getText().toString());
+                    }
+                    if (preTip.getText().toString().isEmpty()){
+                        fTip=15;
+                    }else{
+                        fTip = Float.parseFloat(preTip.getText().toString());
+                    }
                     if (fTip > 100){Toast.makeText(requireContext(),"Someone's feeling mighty generous. . .", Toast.LENGTH_SHORT).show();}
                     float nFTip = fTip/100;
                     double gTip = fTotal*nFTip;
+                if (rtotB) {
                     double gTotal = Math.ceil((gTip)+fTotal); // where g total stands for grand total
                     gTip = Math.round(gTip*100);
                     gTip = gTip/100;
-
                     viewTot.setText("Total: $"+ (Double.toString(gTotal))+"0");
                     viewTip.setText("Tip: $" + (Double.toString(gTip)));
                     //Toast.makeText(requireContext(),Double.toString(gTotal)+"0", Toast.LENGTH_SHORT).show();
                 } else if (rtipB){
-                    float fTotal = Float.parseFloat(preTot.getText().toString());
-                    float fTip = Float.parseFloat(preTip.getText().toString());
-                    if (fTip > 100){Toast.makeText(requireContext(),"Someone's feeling mighty generous. . .", Toast.LENGTH_SHORT).show();}
-                    float nFTip = fTip/100;
-                    double gTip = fTotal*nFTip;
-
                     double gTotal = (Math.ceil(gTip))+fTotal; // where g total stands for grand total
                     gTotal = Math.round(gTotal*100);
                     gTotal = gTotal/100;
@@ -106,11 +103,6 @@ public class tip extends Fragment {
                     viewTot.setText("Total: $"+ (Double.toString(gTotal)));
                     viewTip.setText("Tip: $" + (Double.toString(gTip))+"0");
                 } else if (nRodB) {
-                    float fTotal = Float.parseFloat(preTot.getText().toString());
-                    float fTip = Float.parseFloat(preTip.getText().toString());
-                    if (fTip > 100){Toast.makeText(requireContext(),"Someone's feeling mighty generous. . .", Toast.LENGTH_SHORT).show();}
-                    float nFTip = fTip/100;
-                    double gTip = fTotal*nFTip;
                     double gTotal = gTip+fTotal; // where g total stands for grand total
                     gTotal = Math.round(gTotal*100);
                     gTotal = gTotal/100;
