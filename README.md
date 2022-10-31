@@ -1,4 +1,4 @@
-# Program # 2
+# Program # 2 points: 50/50
 
 ## Course: 
 Cosc 4730
